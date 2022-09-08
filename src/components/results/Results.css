@@ -1,0 +1,23 @@
+.search-results-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.result-card {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dde0e4;
+}
+
+.result-card img {
+    width: 170px;
+    height: 130px;
+}
+
+.result-card h2 {
+    font-weight: 500;
+}

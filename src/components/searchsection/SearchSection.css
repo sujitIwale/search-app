@@ -1,0 +1,16 @@
+.search-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    border-bottom: 1px solid #dde0e4;
+    width: 100%;
+}
+
+.load-more {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.load-more button {}

@@ -1,0 +1,26 @@
+.tabs {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    list-style: none;
+}
+
+.tab-item {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.tab-item:hover {
+    color: var(--primary-color);
+}
+
+.selected {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+
+@media only screen and (max-width:500px) {
+    .tabs {
+        display: none;
+    }
+}
