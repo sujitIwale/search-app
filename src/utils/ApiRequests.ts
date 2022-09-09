@@ -3,7 +3,7 @@ import LRUCache from "lru-cache";
 
 const baseApiUrl = "https://picsum.photos/v2/list";
 
-const cache = new LRUCache({ max: 25 });
+const cache = new LRUCache({ max: 15, ttl: 1000 * 60 * 5 });
 
 export type GetRequestReturnType = { ok: boolean; data: []; query: string };
 

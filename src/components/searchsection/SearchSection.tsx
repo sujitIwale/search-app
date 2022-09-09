@@ -10,25 +10,28 @@ const SearchSection = () => {
   const [SearchData, setSearchData] = useState<[]>([]);
   const [CurrentPage, setCurrentPage] = useState<number>(1);
   const [CurrentQuery, setCurrentQuery] = useState<string>("");
-  const [Loading, setLoading] = useState<boolean>(false);
+  const [Loading, setLoading] = useState<{ state: boolean; type: string }>({
+    state: false,
+    type: "none",
+  });
 
   const getData = useCallback(async (query: string) => {
+    setLoading({ state: true, type: "get" });
     const res = await getRequest(query, 1);
-
+    setLoading({ type: "none", state: false });
     const inputElement = window.document.querySelector("input");
-    console.log("node", inputElement?.value);
     if (!res.ok || res.query !== inputElement?.value) return;
     setCurrentQuery(res.query);
     setSearchData(res.data);
   }, []);
 
   const loadMore = async () => {
-    setLoading(true);
+    setLoading({ state: true, type: "load" });
     const res: GetRequestReturnType = await getRequest(
       CurrentQuery,
       CurrentPage + 1
     );
-    setLoading(false);
+    setLoading({ type: "none", state: false });
     if (!res.ok) return;
     let newData: [] = [...SearchData, ...res.data];
     setCurrentPage((prev) => prev + 1);
@@ -45,12 +48,16 @@ const SearchSection = () => {
           Showing {SearchData.length} Results for {CurrentQuery}
         </h3>
       )}
-      <SearchResults searchData={SearchData} query={CurrentQuery} />
+      <SearchResults
+        searchData={SearchData}
+        query={CurrentQuery}
+        Loading={Loading}
+      />
       {SearchData.length > 0 ? (
         <div className="load-more">
           <button className="btn load-btn" onClick={() => loadMore()}>
             Load More
-            {Loading && <Loader />}
+            {Loading.state && <Loader />}
           </button>
         </div>
       ) : (

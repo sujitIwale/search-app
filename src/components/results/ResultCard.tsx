@@ -6,8 +6,8 @@ type ResultCardProps = {
 const ResultCard = ({ result, query }: ResultCardProps) => {
   return (
     <div className="result-card">
-      <img src={result.download_url} alt="logo" />
-      <div>
+      <img src={result.download_url} alt="logo" loading="lazy" />
+      <div className="result-card-details">
         <h2>{result?.author}</h2>
         <p>query: {query}</p>
       </div>

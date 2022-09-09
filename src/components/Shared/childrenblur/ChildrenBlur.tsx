@@ -12,7 +12,7 @@ const ChildrenBlur = ({
   className: string;
 }) => {
   useLayoutEffect(() => {
-    document.body.addEventListener("click", onBlur);
+    document.body.onclick = onBlur;
 
     return function () {
       document.body.removeEventListener("click", this);
