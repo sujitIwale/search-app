@@ -32,6 +32,11 @@
 }
 
 
+.error {
+    background-color: red;
+}
+
+
 @media only screen and (max-width:700px) {
     .search-section {
         flex-direction: row-reverse;

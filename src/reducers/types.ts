@@ -2,3 +2,4 @@ export const SET_CURRENT_QUERY = "SET_CURRENT_QUERY";
 export const SET_SEARCH_DATA = "SET_SEARCH_DATA";
 export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 export const SET_LOADING = "SET_LOADING";
+export const SET_ERROR = "SET_ERROR";

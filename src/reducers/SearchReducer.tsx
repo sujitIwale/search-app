@@ -1,11 +1,26 @@
 import {
   SET_CURRENT_PAGE,
   SET_CURRENT_QUERY,
+  SET_ERROR,
   SET_LOADING,
   SET_SEARCH_DATA,
 } from "./types";
 
-const SearchReducer = (state: {}, action: { type: string; payload: any }) => {
+type SearchState = {
+  searchData: [];
+  currentPage: number;
+  currentQuery: string;
+  Loading: {
+    state: boolean;
+    type: string;
+  };
+  error: any;
+};
+
+const SearchReducer = (
+  state: SearchState,
+  action: { type: string; payload?: any }
+) => {
   switch (action.type) {
     case SET_CURRENT_QUERY:
       return {
@@ -15,7 +30,7 @@ const SearchReducer = (state: {}, action: { type: string; payload: any }) => {
     case SET_CURRENT_PAGE:
       return {
         ...state,
-        currentPage: action.payload,
+        currentPage: state.currentPage + 1,
       };
     case SET_SEARCH_DATA:
       return {
@@ -25,7 +40,12 @@ const SearchReducer = (state: {}, action: { type: string; payload: any }) => {
     case SET_LOADING:
       return {
         ...state,
-        loading: action.payload,
+        Loading: action.payload,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

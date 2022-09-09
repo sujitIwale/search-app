@@ -1,6 +1,6 @@
 import "./Results.css";
 import ResultCard from "./ResultCard";
-import ResultCardSkeleton from "../Shared/LazyResultCard/ResultCardSkeleton";
+import ResultCardSkeleton from "../Shared/ResultCardSkeleton/ResultCardSkeleton";
 
 type SearchResultsProps = {
   searchData: [];
