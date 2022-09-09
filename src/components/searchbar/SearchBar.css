@@ -5,10 +5,52 @@
     border-bottom: 1px solid #81878c;
     color: #666;
     padding-bottom: 15px;
+    position: relative;
 }
 
 .search-bar input {
     width: 300px;
     border: none;
     outline: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.suggestion {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 11px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--light-grey);
+    width: 305px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.suggestion h4 {
+    font-weight: 550;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.suggestion .last-searches-list {
+    list-style: none;
+    padding-top: 8px;
+}
+
+@media only screen and (max-width:700px) {
+    .search-bar {
+        gap: 3px;
+        padding-bottom: 8px;
+    }
+
+    .search-bar input {
+        width: 210px;
+    }
+
+    .suggestion {
+        width: 210px;
+    }
 }

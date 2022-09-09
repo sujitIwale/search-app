@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.search-details {
+    margin-top: 10px;
+}
+
 .load-more {
     margin: 30px;
     display: flex;
@@ -13,4 +17,18 @@
     align-items: center;
 }
 
-.load-more button {}
+.load-more button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.load-more button .loader-svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+@media only screen and (max-width:700px) {}

@@ -1,0 +1,1 @@
+export const SET_CURRENT_QUERY = "SET_CURRENT_QUERY";

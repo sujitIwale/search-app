@@ -13,6 +13,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.hidden {
+  visibility: hidden;
+}
 
 .btn {
   display: block;

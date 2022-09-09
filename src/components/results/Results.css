@@ -9,13 +9,18 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    padding-bottom: 10px;
+    height: 130px;
     border-bottom: 1px solid #dde0e4;
+    border-radius: 4px;
+}
+
+.result-card:hover {
+    box-shadow: var(--box-shadow);
 }
 
 .result-card img {
     width: 170px;
-    height: 130px;
+    height: 100%;
 }
 
 .result-card h2 {

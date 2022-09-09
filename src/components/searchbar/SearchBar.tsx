@@ -1,27 +1,50 @@
-import { ChangeEvent, useCallback } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 import { debounce } from "../../helpers/debounce";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import ChildrenBlur from "../Shared/childrenblur/ChildrenBlur";
 import "./SearchBar.css";
+import Suggestions from "./Suggestions";
 
 type SearchBarProps = {
   getData: (q: string) => void;
 };
 
+const addToSet = (words: string[], val: string) => {
+  words.push(val);
+  if (words.length > 7) {
+    words = words.slice(words.length - 7, words.length);
+  }
+  let st = new Set<string>(words);
+
+  return Array.from(st).reverse();
+};
+
 const SearchBar = ({ getData }: SearchBarProps) => {
-  console.log("searchbar");
+  const [ShowSuggestion, setShowSuggestion] = useState<boolean>(false);
+  const [SearchKeywords, setSearchKeywords] = useLocalStorage(
+    "search-keywords",
+    []
+  );
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-
+    let value = e.target.value;
+    value = value.trim();
     if (value.length < 3) return;
 
     getData(value);
+
+    setSearchKeywords(addToSet(SearchKeywords, value));
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const search = useCallback(debounce(changeHandler, 500), []);
 
   return (
-    <div className="search-bar">
+    <ChildrenBlur
+      onBlur={() => setShowSuggestion(false)}
+      onFocus={() => setShowSuggestion(true)}
+      className="search-bar"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0px"
@@ -35,10 +58,17 @@ const SearchBar = ({ getData }: SearchBarProps) => {
       </svg>
       <input
         type="text"
-        placeholder="Try typing something..."
+        placeholder="Type something here..."
         onChange={search}
+        id="search-input"
       />
-    </div>
+      <Suggestions
+        SearchKeywords={SearchKeywords}
+        ShowSuggestion={ShowSuggestion}
+        setShowSuggestion={setShowSuggestion}
+        getData={getData}
+      />
+    </ChildrenBlur>
   );
 };
 
