@@ -46,6 +46,8 @@ const SearchReducer = (
       return {
         ...state,
         error: action.payload,
+        Loading: { state: false, type: "none" },
+        searchData: [],
       };
     default:
       return state;
