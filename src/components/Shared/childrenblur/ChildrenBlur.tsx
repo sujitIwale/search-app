@@ -1,16 +1,18 @@
 import { ReactNode, useLayoutEffect } from "react";
 
+type ChildrenBlurProps = {
+  children: ReactNode;
+  onBlur: () => any;
+  onFocus: () => any;
+  className: string;
+};
+
 const ChildrenBlur = ({
   children,
   onBlur,
   onFocus,
   className,
-}: {
-  children: ReactNode;
-  onBlur: () => any;
-  onFocus: () => any;
-  className: string;
-}) => {
+}: ChildrenBlurProps) => {
   useLayoutEffect(() => {
     document.body.onclick = onBlur;
 

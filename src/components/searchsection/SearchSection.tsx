@@ -29,6 +29,7 @@ const SearchSection = () => {
   const [state, dispatch] = useReducer(SearchReducer, initialValue);
 
   const getData = useCallback(async (query: string) => {
+    if (query.length < 3) return;
     dispatch({ type: SET_LOADING, payload: { state: true, type: "get" } });
     const res = await getRequest(query, 1);
     dispatch({ type: SET_LOADING, payload: { type: "none", state: false } });
@@ -83,7 +84,7 @@ const SearchSection = () => {
       ) : (
         <div className="load-more">
           <button className={`btn ${state.error ? "error" : ""}`}>
-            {state.error && state.error} No reuslts found try searching
+            {state.error && state.error} No reuslts , try searching
             something....
           </button>
         </div>

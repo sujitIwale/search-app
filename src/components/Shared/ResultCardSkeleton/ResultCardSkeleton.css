@@ -15,7 +15,7 @@
     animation: shine-lines 1s infinite ease-out;
 }
 
-.line {
+.lazy-result-card-text {
     width: 180px;
     height: 20px;
     margin-top: 12px;
@@ -36,8 +36,6 @@
     }
 }
 
-
-
 @media only screen and (max-width:700px) {
     .lazy-result-card {
         height: 110px;
@@ -46,4 +44,10 @@
     .lazy-result-card-img {
         width: 150px;
     }
+
+    .lazy-result-card-text {
+        width: 120px;
+
+    }
+
 }

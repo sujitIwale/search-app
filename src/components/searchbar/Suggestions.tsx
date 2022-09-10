@@ -25,18 +25,25 @@ const Suggestions = ({
         Array.isArray(SearchKeywords) &&
         SearchKeywords.length > 0 && (
           <ul className="last-searches-list">
-            <li>Recent Searches</li>
+            <li style={{ fontSize: "18px", marginBottom: "4px" }}>
+              Recent Searches
+            </li>
             {SearchKeywords.map((keyword, ind) => (
               <li
                 key={ind}
-                className="tab-item"
+                className="list-item"
                 onClick={() => {
                   updateInput(keyword);
                   getData(keyword);
                   setShowSuggestion(false);
                 }}
               >
-                {keyword}
+                <img
+                  style={{ marginTop: "5px" }}
+                  alt="clock"
+                  src="https://img.icons8.com/ios/14/000000/time-machine.png"
+                />
+                <p>{keyword}</p>
               </li>
             ))}
           </ul>
