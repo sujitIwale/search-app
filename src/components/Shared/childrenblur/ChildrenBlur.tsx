@@ -17,7 +17,7 @@ const ChildrenBlur = ({
     document.body.onclick = onBlur;
 
     return function () {
-      document.body.removeEventListener("click", this);
+      document.body.onclick = null;
     };
   }, [onBlur]);
 
