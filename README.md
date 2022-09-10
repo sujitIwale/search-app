@@ -1,10 +1,20 @@
-# Getting Started with Create React App
+# Smallcase Assignment
+### Th
+This project is created using Reactjs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Tech Stack
+* React 
+* Typescript
+* Axios
+* LRU Cache
 
-## Available Scripts
-
-In the project directory, you can run:
+### Features 
+* Created input to fetch data from API for a search query
+* Added debounce to make efficient API requests
+* Cached the most recent search queries and their data using LRU cache
+* UI is in a Consistent state with query
+* Suggestions(dropdown) as per previous searches 
+* Added the skeleton loading
 
 ### `npm start`
 
