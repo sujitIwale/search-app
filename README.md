@@ -20,8 +20,12 @@ This project is created using Reactjs
 - Suggestions(dropdown) as per previous searches
 - Added the skeleton loading
 
-#### We can create our own LRU caching logic using Hashmap and Doubly linkelist but it will be hard to handle some edge cases
+#### We can create our own LRU caching logic using Hashmap and Doubly linkedlist but it will be hard to handle some edge cases
 
 ### Screenshots
 
+Web Screen :
 ![screenshot](https://raw.githubusercontent.com/sujitIwale/search-app/main/public/ui-screenshot.png)
+
+Mobile Screen :
+![screenshot](https://raw.githubusercontent.com/sujitIwale/search-app/main/public/mobile-screenshot.png)
