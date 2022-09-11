@@ -24,8 +24,8 @@ This project is created using Reactjs
 
 ### Screenshots
 
-Web Screen :
+#### Web Screen :
 ![screenshot](https://raw.githubusercontent.com/sujitIwale/search-app/main/public/ui-screenshot.png)
 
-Mobile Screen :
+#### Mobile Screen :
 ![screenshot](https://raw.githubusercontent.com/sujitIwale/search-app/main/public/mobile-screenshot.png)
