@@ -20,7 +20,9 @@ This project is created using Reactjs
 - Suggestions(dropdown) as per previous searches
 - Added the skeleton loading
 
-#### We can create our own LRU caching logic using Hashmap and Doubly linkedlist but it will be hard to handle some edge cases
+#### LRU cache is used to cache the API calls.
+#### We can create our own LRU caching logic using Hashmap and Doubly linkedlist but it will be hard to handle some edge cases.
+#### LocalStorage is used to store previous searches so that we show the history of searches.
 
 ### Screenshots
 
