@@ -24,4 +24,4 @@ This project is created using Reactjs
 
 ### Screenshots
 
-![screenshot](https://search-feature.netlify.app/ui-screenshot.png)
+![screenshot](https://raw.githubusercontent.com/sujitIwale/search-app/main/public/ui-screenshot.png)
