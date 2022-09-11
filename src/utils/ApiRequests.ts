@@ -5,7 +5,20 @@ const baseApiUrl = "https://picsum.photos/v2/list";
 
 const cache = new LRUCache({ max: 15, ttl: 1000 * 60 * 5 });
 
-export type GetRequestReturnType = { ok: boolean; data: []; query: string };
+export type DataType = {
+  id: string;
+  author: string;
+  width: number;
+  height: number;
+  url: string;
+  download_url: string;
+};
+
+export type GetRequestReturnType = {
+  ok: boolean;
+  data: [];
+  query: string;
+};
 
 export const getRequest = async (query: string, page: number) => {
   const url = `${baseApiUrl}?page=${page}&limit=5&query=${query}`;

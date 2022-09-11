@@ -20,6 +20,8 @@ This project is created using Reactjs
 - Suggestions(dropdown) as per previous searches
 - Added the skeleton loading
 
+#### We can create our own LRU caching logic using Hashmap and Doubly linkelist but it will be hard to handle some edge cases
+
 ### Screenshots
 
 ![screenshot](https://search-feature.netlify.app/ui-screenshot.png)
