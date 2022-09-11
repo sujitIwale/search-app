@@ -34,11 +34,11 @@ const SearchSection = () => {
     const res = await getRequest(query, 1);
     dispatch({ type: SET_LOADING, payload: { type: "none", state: false } });
     const inputElement = window.document.querySelector("input");
-    if (!res.ok) {
+    if (res.query !== inputElement?.value) return;
+    if (!res.ok || !Array.isArray(res.data) || res.data.length <= 0) {
       dispatch({ type: SET_ERROR, payload: "something went wrong" });
       return;
     }
-    if (res.query !== inputElement?.value) return;
     dispatch({ type: SET_CURRENT_QUERY, payload: res.query });
     dispatch({ type: SET_SEARCH_DATA, payload: res.data });
   }, []);
@@ -51,7 +51,7 @@ const SearchSection = () => {
     );
     dispatch({ type: SET_LOADING, payload: { type: "none", state: false } });
 
-    if (!res.ok) {
+    if (!res.ok || !Array.isArray(res.data) || res.data.length <= 0) {
       dispatch({ type: SET_ERROR, payload: "something went wrong" });
       return;
     }
