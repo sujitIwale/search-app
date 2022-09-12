@@ -58,7 +58,7 @@ const SearchBar = ({ getData }: SearchBarProps) => {
       </svg>
       <input
         type="text"
-        placeholder="Type something here..."
+        placeholder="Enter Github Username..."
         onChange={search}
         id="search-input"
       />
