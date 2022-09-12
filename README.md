@@ -4,13 +4,12 @@ This project is created using Reactjs
 
 ### Live Deployed : https://search-feature.netlify.app/
 
-### Api Used : https://picsum.photos/v2/list
+### Api Used : https://api.github.com/search/user
 
 ### Tech Stack
 
 - React
 - Typescript
-- Axios
 - LRU Cache
 
 ### Features
