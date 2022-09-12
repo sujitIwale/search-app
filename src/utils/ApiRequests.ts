@@ -1,18 +1,16 @@
-import axios from "axios";
 import LRUCache from "lru-cache";
-
-const baseApiUrl = "https://picsum.photos/v2/list";
-
-const cache = new LRUCache({ max: 15, ttl: 1000 * 60 * 5 });
+import { Octokit } from "octokit";
 
 export type DataType = {
-  id: string;
-  author: string;
-  width: number;
-  height: number;
-  url: string;
-  download_url: string;
+  login: string;
+  id: 3054449;
+  avatar_url: string;
+  html_url: string;
 };
+
+const users_per_page = 5;
+
+const cache = new LRUCache({ max: 15, ttl: 1000 * 60 * 5 });
 
 export type GetRequestReturnType = {
   ok: boolean;
@@ -20,10 +18,14 @@ export type GetRequestReturnType = {
   query: string;
 };
 
+const octokit = new Octokit({
+  auth: process.env.REACT_APP_GITHUB_API_TOKEN,
+});
+
 export const getRequest = async (query: string, page: number) => {
-  const url = `${baseApiUrl}?page=${page}&limit=5&query=${query}`;
+  const apiCallString = `q=${query}&page=${page}`;
   try {
-    let cachedData = cache.get(url);
+    let cachedData = cache.get(apiCallString);
     if (cachedData) {
       return {
         data: cachedData,
@@ -31,11 +33,15 @@ export const getRequest = async (query: string, page: number) => {
         query: query,
       };
     }
-    const data = await axios.get(url);
+    const res = await octokit.request("GET /search/users", {
+      q: query,
+      page,
+      per_page: users_per_page,
+    });
 
-    cache.set(url, data.data);
+    cache.set(apiCallString, res.data.items);
     return {
-      data: data.data,
+      data: res.data.items,
       ok: true,
       query: query,
     };

@@ -1,4 +1,4 @@
-import { ReactNode, useLayoutEffect } from "react";
+import { ReactNode } from "react";
 
 type ChildrenBlurProps = {
   children: ReactNode;
@@ -13,18 +13,19 @@ const ChildrenBlur = ({
   onFocus,
   className,
 }: ChildrenBlurProps) => {
-  useLayoutEffect(() => {
-    document.body.onclick = onBlur;
-
-    return function () {
-      document.body.onclick = null;
-    };
-  }, [onBlur]);
+  const openSuggestions = () => {
+    document.body.onclick = closeSuggestions;
+    onFocus();
+  };
+  const closeSuggestions = () => {
+    document.body.onclick = null;
+    onBlur();
+  };
 
   return (
     <div
       className={className}
-      onFocus={onFocus}
+      onFocus={openSuggestions}
       onClick={(e) => e.stopPropagation()}
     >
       {children}

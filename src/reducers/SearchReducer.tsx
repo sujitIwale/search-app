@@ -8,7 +8,7 @@ import {
 
 type SearchState = {
   searchData: [];
-  currentPage: number;
+  currentPage: { number: number; noMorePage: boolean };
   currentQuery: string;
   Loading: {
     state: boolean;
@@ -30,7 +30,7 @@ const SearchReducer = (
     case SET_CURRENT_PAGE:
       return {
         ...state,
-        currentPage: state.currentPage + 1,
+        currentPage: action.payload,
       };
     case SET_SEARCH_DATA:
       return {

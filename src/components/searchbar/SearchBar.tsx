@@ -36,17 +36,12 @@ const SearchBar = ({ getData }: SearchBarProps) => {
     setSearchKeywords(addToSet(SearchKeywords, value));
   };
 
-  const closeSuggestions = () => {
-    document.body.onclick = null;
-    setShowSuggestion(false);
-  };
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const search = useCallback(debounce(changeHandler, 500), []);
 
   return (
     <ChildrenBlur
-      onBlur={closeSuggestions}
+      onBlur={() => setShowSuggestion(false)}
       onFocus={() => setShowSuggestion(true)}
       className="search-bar"
     >
