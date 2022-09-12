@@ -25,7 +25,7 @@ This project is created using Reactjs
 
 #### We can create our own LRU caching logic using Hashmap and Doubly linkedlist but it will be hard to handle some edge cases.
 
-#### LocalStorage is used to store previous searches so that we show the history of searches.
+#### LocalStorage is used to store previous searches so that we can show the history of searches.
 
 ### Screenshots
 
